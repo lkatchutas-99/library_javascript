@@ -9,8 +9,6 @@
   box-sizing: border-box;
 }
 
-
-
 html {
   height: 100vh;
 }
@@ -26,9 +24,16 @@ fieldset {
 fieldset {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.form-modal {
+input[type="text"],
+input[type="number"] {
+  width: 80%;
+}
+
+.modal {
+  visibility: hidden;
   position: absolute;
   background-color: lightblue;
   height: 85vh;
@@ -48,7 +53,7 @@ fieldset {
   margin: 0 5%;
 }
 
-.form-content {
+.create-book-form {
   background-color: white;
   margin: 0 5% 5%;
   display: grid;
@@ -58,11 +63,20 @@ fieldset {
 .input-section {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
+
 .submit-section {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-book-button {
+  width: 30%;
+  height: 30%;
+  font-size: 1.5rem;
 }
 
 .container {
@@ -105,5 +119,5 @@ fieldset {
 .no-books-message {
   position: absolute;
   justify-self: center;
-  top: 10%;
+  align-self: center;
 }
