@@ -39,6 +39,7 @@ label {
 
 .form-modal {
   position: absolute;
+  visibility: hidden;
   background-color: lightblue;
   height: 85vh;
   width: 30vw;
