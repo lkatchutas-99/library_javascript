@@ -11,21 +11,24 @@
 
 <body>
   <div class="container">
-    <div class="modal">
+    <div class="form-modal" draggable="true">
       <button type="button" class="close-modal-button">x</button>
       <form action="./index.html" method="POST" class="create-book-form">
         <section class="input-section">
+          <h3>Add your book details</h3>
           <fieldset>
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author">
+            <label for="author">Author (first and last name)</label>
+            <input type="text" name="author" id="author" required pattern="[a-zA-Z]+\s[a-zA-Z]+"
+              oninvalid="setCustomValidity('Must enter first and last name.')"
+              onchange="try{setCustomValidity('')}catch(e){}">
           </fieldset>
           <fieldset>
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
+            <label for="title">Title (Must be a unique name)</label>
+            <input type="text" name="title" id="title" required>
           </fieldset>
           <fieldset>
-            <label for="page-number">Page Number</label>
-            <input type="number" name="page_number" id="page-number">
+            <label for="page-number">Number of Pages (2-10000)</label>
+            <input type="number" name="page_number" id="page-number" required min="2" max="10000" value="3">
           </fieldset>
         </section>
         <section class="submit-section">
@@ -35,21 +38,70 @@
         </section>
       </form>
     </div>
+    <div class="remove-book-modal">
+      <div class="white remove-book-content">
+        <h3>Are you sure you want to permenantly remove this book? <span class="book-not-read"></span></h3>
+        <button class="confirm-remove">
+          <h4>Yes</h4>
+        </button>
+        <button class="deny-remove">
+          <h4>No</h4>
+        </button>
+      </div>
+    </div>
     <div class="header">
-
+      <div class="header-content">
+        <h1>My Library</h1>
+      </div>
     </div>
     <div class="left-sidebar">
       <button type="button" class="add-book-button">
-        <h5>Add book +</h5>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="white"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <h4 class="white">Add New book + </h4>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="white"></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </button>
     </div>
     <div class="main-container">
-      <h1 class="no-books-message"></h1>
-    </div>
-    <div class="right-sidebar">
 
     </div>
+    <div class="right-sidebar">
+      <div class="right-sidebar-contents">
+        <div class="top-right-sidebar">
+          <h2 class="chosen-book">Chosen Book</h2>
+          <h4 class="book-detail">Title</h4>
+          <h4 class="display display-title"></h4>
+          <h4 class="book-detail">Author</h4>
+          <h4 class="display display-author"></h4>
+          <h4 class="book-detail">Pages</h4>
+          <h4 class="display display-number-of-pages"></h4>
+          <h4 class="book-detail">Read status</h4>
+          <h4 class="display display-read-status">read</h4>
+        </div>
+        <div class="bottom-right-sidebar">
+          <button class="mark-as-read">
+            <h4>Mark as read</h4>
+          </button>
+          <button class="remove-book-button">
+            <h4>Remove this book</h4>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="instructions">Click on a book to view details, read it, or remove it</div>
   </div>
+
   <script src="./script/script.js"></script>
 </body>
 

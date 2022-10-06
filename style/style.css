@@ -1,19 +1,11 @@
 * {
   padding: 0;
   margin: 0;
-  
-  background-color: white;
-  color: black;
-  font-family: 'Times New Roman', Times, serif;
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
 
-html {
-  height: 100vh;
-}
-
-body {
+html, body {
   height: 100vh;
 }
 
@@ -30,10 +22,24 @@ fieldset {
 input[type="text"],
 input[type="number"] {
   width: 80%;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0 10px;
 }
 
-.modal {
-  visibility: hidden;
+label {
+  margin-bottom: 5px;
+  font-weight: 1000;
+  align-self: flex-start;
+  padding-left: calc(10px + 8%);
+}
+
+.input-section > h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.form-modal {
   position: absolute;
   background-color: lightblue;
   height: 85vh;
@@ -47,10 +53,16 @@ input[type="number"] {
 
 .close-modal-button {
   background-color: lightblue;
-  font-size: 20px; 
+  
+  font-size: 1.5rem; 
   justify-self: end;
   align-self: center;
   margin: 0 5%;
+  border: none;
+}
+
+.close-modal-button:hover {
+  cursor: pointer;
 }
 
 .create-book-form {
@@ -74,9 +86,87 @@ input[type="number"] {
 }
 
 .create-book-button {
-  width: 30%;
+  width: 50%;
   height: 30%;
   font-size: 1.5rem;
+  background-color: #282ec2;
+  color: white;
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-book-button:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.create-book-button:active {
+  background-color: yellow;
+  color: #282ec2;
+}
+
+.remove-book-modal {
+  padding: 30px;
+  position: absolute;
+  background-color: lightblue;
+  z-index: 1;
+  width: 50vw;
+  height: 45vh;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.remove-book-content {
+  width: 100%;
+  height: 100%;
+  
+  z-index: 2;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  column-gap: 10px;
+  padding: 10px;
+}
+
+.remove-book-content > h3 {
+  grid-column: 1 / -1;
+  justify-self: center;
+  align-self: center;
+
+}
+
+.confirm-remove {
+  background-color: #282ec2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.deny-remove {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.confirm-remove:hover {
+  
+  background-color: hsl(238, 66%, 30%);
+  cursor: pointer;
+}
+
+.deny-remove:hover {
+  background-color: hsl(0, 100%, 30%);
+  
+  cursor: pointer;
 }
 
 .container {
@@ -86,38 +176,215 @@ input[type="number"] {
   position: relative;
 }
 
-.container > * {
-  
-  border: 1px solid black;
-}
 
 .header {
   grid-column: 1 / -1;
   grid-row: 1;
+  background-color: #282ec2;
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  background-color: white;
+  width: 100%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header-content > h1 {
+  color: red;
+  font-size: 60px;
+}
+
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.left-sidebar > button {
+  width: 80%;
+  height: 20%;
+  border-radius: 15px;
+  border: none;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(7, 1fr);
+  background-color: #282ec2;
+  color: red;
   
 }
 
+.add-book-button > h4 {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.white {
+  background-color: white;
+}
+
+.add-book-button:hover
+{
+  background-color: red;
+  color: #282ec2;
+  cursor: pointer;
+}
+
+.left-sidebar > button:active
+{
+  background-color: #fdce4b;
+  color: #282ec2;
+  cursor: pointer;
+}
+
 .main-container {
+  background-color: #f6f6f6;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: row;
   overflow: scroll;
-  gap: 10px;
+  gap: 20px;
+  padding: 20px;
   position: relative;
 }
 
 .book {
-  border: 1px solid green;
-  width: 50%;
-  height: 0%;
-
-  padding-bottom: 50%;
+  background-color: white;
+  border: 10px solid lightblue;
   
+  width: 150px;
+  height: 200px;
   justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.book:hover {
+  border-color: blue;
+  color: red;
+  cursor: pointer;
+}
+
+.book:active {
+  border-color: blue;
+  color: blue;
+}
+
+.book > p {
+  position: absolute;
+  bottom: 0;
+  
 }
 
 .no-books-message {
   position: absolute;
   justify-self: center;
   align-self: center;
+}
+
+.legend {
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}
+
+.instructions {
+  position: fixed;
+  bottom: 0;
+  justify-self: center;
+  visibility: hidden;
+}
+
+.right-sidebar {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.right-sidebar,
+.left-sidebar
+ {
+  background-color: #e8e8e8;
+}
+
+.right-sidebar-contents {
+  padding: 20px;
+  height: 100%;
+  display: grid;
+  grid-template: repeat(2, 1fr) / 1fr;
+  background-color: white;
+  width: 100%;
+  visibility: hidden;
+  
+}
+
+.book-detail {
+  color: #282ec2
+}
+
+.display {
+  justify-self: end;
+  color: red;
+}
+
+.top-right-sidebar {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 2fr;
+}
+
+.chosen-book {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+
+
+.bottom-right-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.mark-as-read, 
+.remove-book-button {
+  border: none;
+  width: 80%;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.remove-book-button:hover {
+  cursor: pointer;
+}
+
+.mark-as-read {
+  background-color: #282ec2;
+  color: white;
+  border: none;
+}
+
+.mark-as-read:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.mark-as-read:active {
+  background-color: yellow;
+  color: red;
 }
