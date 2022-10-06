@@ -131,24 +131,22 @@ window.onload = function () {
     }
   }
 
-  function Book(author, title, pageNumber, hasBeenRead) {
+  function Book(author, title, pageNumber) {
     this.author = author;
     this.title = title;
     this.pageNumber = pageNumber;
-    this.hasBeenRead = hasBeenRead;
+    this.hasBeenRead = false;
   }
 
   function addBookToLibrary(e) {
     let title = this.elements['title'];
     if (myLibrary.length > 0 && myLibrary.some(element => element.title === title.value)) {
       alert('Title must be unique');
-
     }
     else {
-
       let author = this.elements['author'].value;
       let pageNumber = this.elements['page_number'].value;
-      let book = new Book(author, title.value, pageNumber, false);
+      let book = new Book(author, title.value, pageNumber);
       myLibrary.push(book);
       displayBooks();
       form_modal.style.visibility = 'hidden';
