@@ -22,10 +22,7 @@ window.onload = function () {
   let allInputs = Array.from(document.querySelectorAll('input'));
   let myLibrary = [];
 
-  let id = 0;
-
   displayBooks();
-
 
   create_book_form.addEventListener('submit', addBookToLibrary);
   close_modal_button.addEventListener('click', closeModal);
@@ -34,8 +31,6 @@ window.onload = function () {
   deny_remove.addEventListener('click', closeRemoveModal);
   confirm_remove.addEventListener('click', removeBook);
   remove_book_button.addEventListener('click', openRemoveModal);
-
-
 
   function closeRemoveModal() {
     remove_book_modal.style.visibility = 'hidden';
@@ -137,7 +132,6 @@ window.onload = function () {
   }
 
   function Book(author, title, pageNumber, hasBeenRead) {
-    this.id = id++;
     this.author = author;
     this.title = title;
     this.pageNumber = pageNumber;
